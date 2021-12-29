@@ -29,5 +29,8 @@
     <Setting Name="History" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">7200</Value>
     </Setting>
+    <Setting Name="dgvFontSize" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">8.25</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

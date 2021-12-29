@@ -59,6 +59,7 @@ namespace N5TMScrapper
         string text2edit = "";
         string line2edit = "";
         int History = 7200;
+        
         public MainForm()
         {
             InitializeComponent();
@@ -68,7 +69,7 @@ namespace N5TMScrapper
         {
             //StationsList.SelectedValueChanged += new EventHandler(StationsList_MouseUp);
             // MsgTextView.Buffer.UserActionEnded += new EventHandler(MsgTextView_KeyPress);
-           
+            
             this.Text = "TMClient (beta):" + Application.ProductVersion;
             GetSettings();
             PageURLIndex = cboWebPages.SelectedIndex;
@@ -125,6 +126,9 @@ namespace N5TMScrapper
                 myInfo.email = Properties.Settings.Default.myEmail;
                 myInfo.state = Properties.Settings.Default.myState;
                 History = Properties.Settings.Default.History;
+                float dgvfontsize = Properties.Settings.Default.dgvFontSize;
+                UpdateFont(dataGridViewPJResp,dgvfontsize);
+
                 switch (History)
                 {
                     case 3600:
@@ -1399,6 +1403,33 @@ namespace N5TMScrapper
             SaveSettings();
             reFillStationsList();
         }
+        private void decreaseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            float dgvFontSize = Properties.Settings.Default.dgvFontSize;
+            dgvFontSize -= 1;
+            UpdateFont(dataGridViewPJResp, dgvFontSize);
+            Properties.Settings.Default.dgvFontSize = dgvFontSize;
+            Properties.Settings.Default.Save();
+        }
+        private void increaseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            float dgvFontSize = Properties.Settings.Default.dgvFontSize;
+            dgvFontSize += 1;
+            UpdateFont(dataGridViewPJResp, dgvFontSize);
+            Properties.Settings.Default.dgvFontSize = dgvFontSize;
+            Properties.Settings.Default.Save();
+
+        }
+        private void UpdateFont(DataGridView dgv, float size)
+        {
+            //Change cell font
+            foreach (DataGridViewColumn c in dgv.Columns)
+            {
+                c.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", size);
+            }
+        }
+
+        
     }
 
     public static class ExtensionMethods
@@ -1435,6 +1466,7 @@ namespace N5TMScrapper
             cell.Value = text;
             cell.Style.ForeColor = color;
             cell.Style.BackColor = background;
+
         }
     }
     public static class MyExtensions
