@@ -669,8 +669,8 @@ namespace N5TMScrapper
                             //SetTextBox(PJTextBox, post_time[dte.Count - 1 - i] + " ", true, Color.Gray, false);
                             addItemToPJResponseGrid(dataGridViewPJResp, 0, post_time[dte.Count - 1 - i], Color.Gray, false, true, npj);
                             //SetTextBox(PJTextBox, post_nick[dte.Count - 1 - i], true, npj.nick_color, false);  //npj.nick_color
-                            //addItemToPJResponseGrid(dataGridViewPJResp, 2, post_nick[dte.Count - 1 - i], npj.nick_color, false, false);
-                            addItemToPJResponseGrid(dataGridViewPJResp, 2, npj.callsign, npj.nick_color, false, false, npj);
+                            addItemToPJResponseGrid(dataGridViewPJResp, 2, post_nick[dte.Count - 1 - i], npj.nick_color, false, false, npj);
+                            //addItemToPJResponseGrid(dataGridViewPJResp, 2, npj.callsign, npj.nick_color, false, false, npj);
                             // SetTextBox(PJTextBox, "=> ", true, Color.LightGray, false);
 
                             //SetTextBox(PJTextBox, post_text[dte.Count - 1 - i] + "\r" + "\n", true, Color.White, highliteThis);
@@ -1167,12 +1167,21 @@ namespace N5TMScrapper
 
         private void selectedSet(DataGridView dgv)
         {
-            btnCallsign.Text = selectedCallsign;
+            string extractedCallsign = "";
+            if (selectedCallsign.Contains("/"))
+            {
+                extractedCallsign = selectedCallsign.Split('/')[0];
+            }
+            else
+            {
+                extractedCallsign = selectedCallsign.Split(' ')[0];
+            }
+            btnCallsign.Text = extractedCallsign;
 
             Color nickColor = Color.Black;
             foreach (PJCPlus.PJ n in nick_unique)
             {
-                if (n.callsign == selectedCallsign)
+                if (n.callsign == extractedCallsign)
                 {
                     nickColor = n.nick_color;
                     btnGrid.Text = n.locator;
@@ -1333,6 +1342,10 @@ namespace N5TMScrapper
                 else
                 {
                     dataGridViewPJResp.Cursor = Cursors.Default;
+                }
+                if(e.ColumnIndex == 2)
+                {
+                    toolTip1.SetToolTip(dataGridViewPJResp, selectedCallsign);
                 }
             }
             catch (Exception)

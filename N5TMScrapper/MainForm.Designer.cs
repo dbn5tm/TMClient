@@ -94,6 +94,7 @@
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hightliteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sendMsgToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -852,6 +853,7 @@
         private System.Windows.Forms.ToolStripMenuItem hrs2ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hrs6ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem allHistoryToolStripMenuItem;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 
