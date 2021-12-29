@@ -127,8 +127,13 @@ namespace N5TMScrapper
                 myInfo.state = Properties.Settings.Default.myState;
                 History = Properties.Settings.Default.History;
                 float dgvfontsize = Properties.Settings.Default.dgvFontSize;
-                UpdateFont(dataGridViewPJResp,dgvfontsize);
+                
+                bool fontbold = Properties.Settings.Default.FontBold;
+                UpdateFont(dataGridViewPJResp, dgvfontsize, fontbold);
+                UpdateFont(StationsList, dgvfontsize, fontbold);
+                boldToolStripMenuItem.Checked = fontbold;
 
+                if (fontbold)
                 switch (History)
                 {
                     case 3600:
@@ -1406,30 +1411,52 @@ namespace N5TMScrapper
         private void decreaseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             float dgvFontSize = Properties.Settings.Default.dgvFontSize;
+            bool fontstyle = Properties.Settings.Default.FontBold;
+
             dgvFontSize -= 1;
-            UpdateFont(dataGridViewPJResp, dgvFontSize);
+            UpdateFont(dataGridViewPJResp, dgvFontSize, fontstyle);
+            UpdateFont(StationsList, dgvFontSize, fontstyle);
             Properties.Settings.Default.dgvFontSize = dgvFontSize;
             Properties.Settings.Default.Save();
         }
         private void increaseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             float dgvFontSize = Properties.Settings.Default.dgvFontSize;
+            bool fontstyle = Properties.Settings.Default.FontBold;
+
             dgvFontSize += 1;
-            UpdateFont(dataGridViewPJResp, dgvFontSize);
+            UpdateFont(dataGridViewPJResp, dgvFontSize, fontstyle);
+            UpdateFont(StationsList, dgvFontSize, fontstyle);
             Properties.Settings.Default.dgvFontSize = dgvFontSize;
             Properties.Settings.Default.Save();
 
         }
-        private void UpdateFont(DataGridView dgv, float size)
+        private void UpdateFont(DataGridView dgv, float size, bool bold)
         {
             //Change cell font
+            FontStyle style = bold ? FontStyle.Bold : FontStyle.Regular;
             foreach (DataGridViewColumn c in dgv.Columns)
             {
-                c.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", size);
+                c.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", size, style);
             }
         }
 
-        
+        private void boldToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (boldToolStripMenuItem.Checked)
+            {
+                boldToolStripMenuItem.Checked = false;  
+            }
+            else
+            {
+                boldToolStripMenuItem.Checked = true;
+            }
+            float dgvFontSize = Properties.Settings.Default.dgvFontSize;
+            
+            UpdateFont(dataGridViewPJResp, dgvFontSize, boldToolStripMenuItem.Checked);
+            Properties.Settings.Default.FontBold = boldToolStripMenuItem.Checked;
+            Properties.Settings.Default.Save();
+        }
     }
 
     public static class ExtensionMethods

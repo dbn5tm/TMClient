@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.dataGridViewPJResp = new System.Windows.Forms.DataGridView();
@@ -45,6 +45,10 @@
             this.hrs2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hrs6ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.allHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fontToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.increaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.decreaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.boldToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
@@ -95,9 +99,6 @@
             this.hightliteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sendMsgToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.fontToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.increaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.decreaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -195,8 +196,8 @@
             // 
             // Post
             // 
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Post.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Post.DefaultCellStyle = dataGridViewCellStyle1;
             this.Post.HeaderText = "Post";
             this.Post.Name = "Post";
             this.Post.Width = 400;
@@ -287,6 +288,37 @@
             this.allHistoryToolStripMenuItem.Size = new System.Drawing.Size(99, 22);
             this.allHistoryToolStripMenuItem.Text = "all";
             this.allHistoryToolStripMenuItem.Click += new System.EventHandler(this.allHistoryToolStripMenuItem_Click);
+            // 
+            // fontToolStripMenuItem
+            // 
+            this.fontToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.increaseToolStripMenuItem,
+            this.decreaseToolStripMenuItem,
+            this.boldToolStripMenuItem});
+            this.fontToolStripMenuItem.Name = "fontToolStripMenuItem";
+            this.fontToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fontToolStripMenuItem.Text = "Font";
+            // 
+            // increaseToolStripMenuItem
+            // 
+            this.increaseToolStripMenuItem.Name = "increaseToolStripMenuItem";
+            this.increaseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.increaseToolStripMenuItem.Text = "Increase";
+            this.increaseToolStripMenuItem.Click += new System.EventHandler(this.increaseToolStripMenuItem_Click);
+            // 
+            // decreaseToolStripMenuItem
+            // 
+            this.decreaseToolStripMenuItem.Name = "decreaseToolStripMenuItem";
+            this.decreaseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.decreaseToolStripMenuItem.Text = "Decrease";
+            this.decreaseToolStripMenuItem.Click += new System.EventHandler(this.decreaseToolStripMenuItem_Click);
+            // 
+            // boldToolStripMenuItem
+            // 
+            this.boldToolStripMenuItem.Name = "boldToolStripMenuItem";
+            this.boldToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.boldToolStripMenuItem.Text = "Bold";
+            this.boldToolStripMenuItem.Click += new System.EventHandler(this.boldToolStripMenuItem_Click);
             // 
             // viewToolStripMenuItem
             // 
@@ -748,29 +780,6 @@
             this.sendMsgToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.sendMsgToolStripMenuItem.Text = "Send Msg";
             // 
-            // fontToolStripMenuItem
-            // 
-            this.fontToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.increaseToolStripMenuItem,
-            this.decreaseToolStripMenuItem});
-            this.fontToolStripMenuItem.Name = "fontToolStripMenuItem";
-            this.fontToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.fontToolStripMenuItem.Text = "Font Size";
-            // 
-            // increaseToolStripMenuItem
-            // 
-            this.increaseToolStripMenuItem.Name = "increaseToolStripMenuItem";
-            this.increaseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.increaseToolStripMenuItem.Text = "Increase";
-            this.increaseToolStripMenuItem.Click += new System.EventHandler(this.increaseToolStripMenuItem_Click);
-            // 
-            // decreaseToolStripMenuItem
-            // 
-            this.decreaseToolStripMenuItem.Name = "decreaseToolStripMenuItem";
-            this.decreaseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.decreaseToolStripMenuItem.Text = "Decrease";
-            this.decreaseToolStripMenuItem.Click += new System.EventHandler(this.decreaseToolStripMenuItem_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -884,6 +893,7 @@
         private System.Windows.Forms.ToolStripMenuItem fontToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem increaseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem decreaseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem boldToolStripMenuItem;
     }
 }
 

@@ -142,5 +142,17 @@ namespace N5TMScrapper.Properties {
                 this["dgvFontSize"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool FontBold {
+            get {
+                return ((bool)(this["FontBold"]));
+            }
+            set {
+                this["FontBold"] = value;
+            }
+        }
     }
 }
