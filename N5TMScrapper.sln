@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2010
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMClient", "N5TMScrapper\TMClient.csproj", "{B24DB224-F606-4EA5-85C3-1E555F7FE3D3}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "TMClientInstaller", "TMClientInstaller\TMClientInstaller.vdproj", "{B510A80E-B5C6-4A86-AB45-3051E8352DD2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,8 @@ Global
 		{B24DB224-F606-4EA5-85C3-1E555F7FE3D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B24DB224-F606-4EA5-85C3-1E555F7FE3D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B24DB224-F606-4EA5-85C3-1E555F7FE3D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B510A80E-B5C6-4A86-AB45-3051E8352DD2}.Debug|Any CPU.ActiveCfg = Debug
+		{B510A80E-B5C6-4A86-AB45-3051E8352DD2}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
