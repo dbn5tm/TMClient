@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.dataGridViewPJResp = new System.Windows.Forms.DataGridView();
@@ -65,6 +65,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.rtxtCQBox = new System.Windows.Forms.RichTextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.moonRichTextBox = new System.Windows.Forms.RichTextBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.pictureBoxFTP = new System.Windows.Forms.PictureBox();
             this.tabresp = new System.Windows.Forms.TabPage();
@@ -99,6 +100,7 @@
             this.hightliteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sendMsgToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.timerOneSecond = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -117,6 +119,7 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFTP)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -196,8 +199,8 @@
             // 
             // Post
             // 
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Post.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Post.DefaultCellStyle = dataGridViewCellStyle6;
             this.Post.HeaderText = "Post";
             this.Post.Name = "Post";
             this.Post.Width = 400;
@@ -246,7 +249,7 @@
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
@@ -258,7 +261,7 @@
             this.hrs6ToolStripMenuItem,
             this.allHistoryToolStripMenuItem});
             this.historyToolStripMenuItem.Name = "historyToolStripMenuItem";
-            this.historyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.historyToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.historyToolStripMenuItem.Text = "History";
             // 
             // hrToolStripMenuItem
@@ -296,27 +299,27 @@
             this.decreaseToolStripMenuItem,
             this.boldToolStripMenuItem});
             this.fontToolStripMenuItem.Name = "fontToolStripMenuItem";
-            this.fontToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fontToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.fontToolStripMenuItem.Text = "Font";
             // 
             // increaseToolStripMenuItem
             // 
             this.increaseToolStripMenuItem.Name = "increaseToolStripMenuItem";
-            this.increaseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.increaseToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.increaseToolStripMenuItem.Text = "Increase";
             this.increaseToolStripMenuItem.Click += new System.EventHandler(this.increaseToolStripMenuItem_Click);
             // 
             // decreaseToolStripMenuItem
             // 
             this.decreaseToolStripMenuItem.Name = "decreaseToolStripMenuItem";
-            this.decreaseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.decreaseToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.decreaseToolStripMenuItem.Text = "Decrease";
             this.decreaseToolStripMenuItem.Click += new System.EventHandler(this.decreaseToolStripMenuItem_Click);
             // 
             // boldToolStripMenuItem
             // 
             this.boldToolStripMenuItem.Name = "boldToolStripMenuItem";
-            this.boldToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.boldToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.boldToolStripMenuItem.Text = "Bold";
             this.boldToolStripMenuItem.Click += new System.EventHandler(this.boldToolStripMenuItem_Click);
             // 
@@ -443,6 +446,8 @@
             // treeViewCQ
             // 
             this.treeViewCQ.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeViewCQ.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeViewCQ.ForeColor = System.Drawing.SystemColors.WindowText;
             this.treeViewCQ.Location = new System.Drawing.Point(3, 3);
             this.treeViewCQ.Name = "treeViewCQ";
             this.treeViewCQ.Size = new System.Drawing.Size(212, 169);
@@ -471,12 +476,25 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.moonRichTextBox);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(218, 175);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Web";
+            this.tabPage3.Text = "Moon";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // moonRichTextBox
+            // 
+            this.moonRichTextBox.BackColor = System.Drawing.Color.Black;
+            this.moonRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.moonRichTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.moonRichTextBox.ForeColor = System.Drawing.Color.White;
+            this.moonRichTextBox.Location = new System.Drawing.Point(0, 0);
+            this.moonRichTextBox.Name = "moonRichTextBox";
+            this.moonRichTextBox.Size = new System.Drawing.Size(218, 175);
+            this.moonRichTextBox.TabIndex = 0;
+            this.moonRichTextBox.Text = "";
             // 
             // tabPage4
             // 
@@ -780,6 +798,11 @@
             this.sendMsgToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.sendMsgToolStripMenuItem.Text = "Send Msg";
             // 
+            // timerOneSecond
+            // 
+            this.timerOneSecond.Interval = 5000;
+            this.timerOneSecond.Tick += new System.EventHandler(this.timerOneSecond_Tick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -812,6 +835,7 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFTP)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -894,6 +918,8 @@
         private System.Windows.Forms.ToolStripMenuItem increaseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem decreaseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem boldToolStripMenuItem;
+        private System.Windows.Forms.RichTextBox moonRichTextBox;
+        private System.Windows.Forms.Timer timerOneSecond;
     }
 }
 

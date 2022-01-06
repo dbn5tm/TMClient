@@ -28,13 +28,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_AB6CEEFA61C8BF3F4B862A47702EAB50"
+        "OwnerKey" = "8:_8FE55CD9F65349E298D45E46A049DB4E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_8FE55CD9F65349E298D45E46A049DB4E"
+        "OwnerKey" = "8:_AB6CEEFA61C8BF3F4B862A47702EAB50"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -55,6 +55,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.8"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.8 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.8"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -71,6 +87,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -188,7 +212,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:TMClient"
         "ProductCode" = "8:{241D9447-E24A-4D93-9500-D6F0E9176A2F}"
-        "PackageCode" = "8:{216867BF-FAC5-4636-AC26-35BBFBF60D62}"
+        "PackageCode" = "8:{F5CCE26A-FF99-4C31-A7B2-D7C551D1163C}"
         "UpgradeCode" = "8:{10CCB6E3-40B6-4025-9725-7DB154D57160}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
@@ -198,7 +222,7 @@
         "ProductVersion" = "8:1.1.1"
         "Manufacturer" = "8:n5tm"
         "ARPHELPTELEPHONE" = "8:"
-        "ARPHELPLINK" = "8:n5tm.com"
+        "ARPHELPLINK" = "8:http://n5tm.com"
         "Title" = "8:TMClientInstaller"
         "Subject" = "8:"
         "ARPCONTACT" = "8:Dan Bates"

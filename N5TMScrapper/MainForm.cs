@@ -28,7 +28,8 @@ namespace N5TMScrapper
         List<PJCPlus.PJ> nick_unique;
         List<String> freq_post;
         List<DateTime> myposts = new List<DateTime>();
-        
+        LatLng homeLL;
+        LatLng DXLL;
         long minutetimer = 0;
         string[] post_time = new string[100];
         String[] post_nick = new string[100];
@@ -84,9 +85,15 @@ namespace N5TMScrapper
 
             cboWebPages.SelectedValue = PageURLIndex;
             if (PageURLIndex > 0)
+            {
                 SplitChar = "{";
+                timerOneSecond.Enabled = true;
+            }
             else
+            {
                 SplitChar = "(";
+            }
+                
             
             dataGridViewPJResp.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridViewPJResp.Columns[1].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
@@ -125,6 +132,7 @@ namespace N5TMScrapper
                 myInfo.locator = Properties.Settings.Default.myGrid;
                 myInfo.email = Properties.Settings.Default.myEmail;
                 myInfo.state = Properties.Settings.Default.myState;
+                homeLL = MaidenheadLocator.LocatorToLatLng(myInfo.locator);
                 History = Properties.Settings.Default.History;
                 float dgvfontsize = Properties.Settings.Default.dgvFontSize;
                 
@@ -1199,6 +1207,7 @@ namespace N5TMScrapper
                     lbldist.Text = n.distance.ToString();
                     lblST.Text = n.state;
                     n.highlite = n.highlite ^ true;
+                    DXLL = MaidenheadLocator.LocatorToLatLng(n.locator);
                 }
             }
             highlitePosts(selectedCallsign, nickColor);
@@ -1456,6 +1465,43 @@ namespace N5TMScrapper
             UpdateFont(dataGridViewPJResp, dgvFontSize, boldToolStripMenuItem.Checked);
             Properties.Settings.Default.FontBold = boldToolStripMenuItem.Checked;
             Properties.Settings.Default.Save();
+        }
+
+        private void moonAzElCalc(string info, double lat, double lon)
+        {
+            DateTime myMoon = DateTime.Now;
+            //N5TMScrapper.SunMoonCalcs.MoonCalc.MoonAzAltDistPa moonPos = N5TMScrapper.SunMoonCalcs.MoonCalc.GetMoonPosition(myMoon, lat, lon);
+            //double myMoonAz = moonPos.azimuth * (180 / Math.PI) + 180;
+            //double myMoonEl = moonPos.altitude * (180 / Math.PI);
+            int iYear = DateTime.UtcNow.Year;
+            int iMonth = DateTime.UtcNow.Month;
+            int iDay = DateTime.UtcNow.Day;
+            double dHour = DateTime.UtcNow.Hour;
+            double dMinute = DateTime.UtcNow.Minute;
+            double dSecond = DateTime.UtcNow.Second;
+            dHour = dHour + (dMinute + (dSecond/60)) / 60;
+            double dAzmuth = 0;
+            double dElevation = 0;
+            double dDist = 0;
+            double dMoonLong = 0;
+            double dDecl = 0;
+            double dRa = 0;
+            double LST = 0;
+            SunMoonCalcs.MoonPos(iYear, iMonth, iDay, dHour, lon, lat, ref dAzmuth, ref dElevation, ref dDist, ref dMoonLong,
+                ref dDecl, ref dRa, ref LST);
+            
+            moonRichTextBox.Text += info + "\r\n Az: " + dAzmuth.ToString("0.00") + "\r\n El: " + dElevation.ToString("0.00") + "\r\n\r\n";
+        }
+
+        private void timerOneSecond_Tick(object sender, EventArgs e)
+        {  // 5 second timer
+            moonRichTextBox.Text = "";
+            moonAzElCalc("Local Moon",homeLL.Lat, homeLL.Long);
+            if(DXLL.Long !=0)
+            {
+                moonAzElCalc(btnCallsign.Text + " Moon", DXLL.Lat, DXLL.Long);
+            }
+            
         }
     }
 

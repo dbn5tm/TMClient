@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("N5TMScrapper")]
+[assembly: AssemblyTitle("TMClient")]
 [assembly: AssemblyDescription("This software reads the Ping Jockey or EME pages and reformats the data for easier usage.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("n5tm")]
-[assembly: AssemblyProduct("N5TMScrapper")]
+[assembly: AssemblyProduct("TMClient")]
 [assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
