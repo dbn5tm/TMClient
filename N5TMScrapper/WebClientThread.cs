@@ -50,6 +50,7 @@ namespace PJCPlus
             // Call asynchronous network methods in a try/catch block to handle exceptions.
             try
             {
+                RetStr("heartbeat");
                 HttpResponseMessage response = await client1.GetAsync(url);
                 response.EnsureSuccessStatusCode();
                 string responseBody = await response.Content.ReadAsStringAsync();

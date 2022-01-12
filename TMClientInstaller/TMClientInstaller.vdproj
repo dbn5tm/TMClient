@@ -94,6 +94,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
     }
@@ -212,7 +220,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:TMClient"
         "ProductCode" = "8:{241D9447-E24A-4D93-9500-D6F0E9176A2F}"
-        "PackageCode" = "8:{F5CCE26A-FF99-4C31-A7B2-D7C551D1163C}"
+        "PackageCode" = "8:{C0A2362D-82E5-4EA4-8BBE-130FADB45D28}"
         "UpgradeCode" = "8:{10CCB6E3-40B6-4025-9725-7DB154D57160}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"

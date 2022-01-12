@@ -360,7 +360,7 @@ namespace N5TMScrapper
                             if (myNick.Success)
                             {
                                 String[] nn = ta.Split(wholeline[i + 1].Substring(wholeline[i + 1].IndexOf('>') + 1));
-                                string[] nnn = ip.Split(nn[1])[0].Split(rightSplitChars[cboWebPages.SelectedIndex]);
+                                string[] nnn = ip.Split(nn[1])[0].Split(rightSplitChars[PageURLIndex]);
                                 Match ipaddr = ip.Match(wholeline[i + 1]);
                                 post_nick[i] = nn[0] + nnn[0];  
                             }
@@ -382,7 +382,7 @@ namespace N5TMScrapper
                                     if (myNick.Value.Contains(SplitChar))
                                     {
                                         String nn = wholeline[i + 1].Substring(wholeline[i + 1].IndexOf(SplitChar) - 1);
-                                        String[] nnn = ip.Split(nn)[0].Split(rightSplitChars[cboWebPages.SelectedIndex]);
+                                        String[] nnn = ip.Split(nn)[0].Split(rightSplitChars[PageURLIndex]);
                                         post_nick[i] = nnn[0].Substring(2);
 
                                     }
@@ -684,7 +684,7 @@ namespace N5TMScrapper
                         if (!post_text[i].Contains("~edit~"))
                         {
                             //SetTextBox(PJTextBox, post_time[dte.Count - 1 - i] + " ", true, Color.Gray, false);
-                            addItemToPJResponseGrid(dataGridViewPJResp, 0, post_time[dte.Count - 1 - i], Color.Gray, false, true, npj);
+                            addItemToPJResponseGrid(dataGridViewPJResp, 0, post_time[dte.Count - 1 - i].Split(' ')[1], Color.Gray, false, true, npj);
                             //SetTextBox(PJTextBox, post_nick[dte.Count - 1 - i], true, npj.nick_color, false);  //npj.nick_color
                             addItemToPJResponseGrid(dataGridViewPJResp, 2, post_nick[dte.Count - 1 - i], npj.nick_color, false, false, npj);
                             //addItemToPJResponseGrid(dataGridViewPJResp, 2, npj.callsign, npj.nick_color, false, false, npj);
@@ -700,7 +700,7 @@ namespace N5TMScrapper
 
 
 
-                    //'age old calls in listview, refresh after 60 postings 5 seconds apart = 5 minutes
+                    //age old calls in listview, refresh after 60 postings 5 seconds apart = 5 minutes
                     minutetimer += 1;
                     if (minutetimer > 10)
                     {
