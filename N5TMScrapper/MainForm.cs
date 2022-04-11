@@ -335,6 +335,7 @@ namespace N5TMScrapper
                 Regex t = new Regex(@"\(<a href.*</a>");
                 Regex tJT65A = new Regex("====== {.*</a>");
                 Regex ta = new Regex("</a>");
+                Regex nonWord = new Regex("/W");
                 string[] txt = n.Split(textpart[0]);
 
 
@@ -352,10 +353,10 @@ namespace N5TMScrapper
 
                         if (wholeline[i + 1].Length > 2)
                         {
-                            if (wholeline[i + 1].Contains("~edit|"))
-                            {
-                                Console.Write(wholeline[i + 1]);
-                            }
+                            //if (wholeline[i + 1].Contains("(K0TPP)"))
+                            //{
+                                if(wholeline[i + 1].Substring(0, 2).Contains('(')) wholeline[i + 1] = wholeline[i + 1].Substring(2, wholeline[i + 1].Length - 2);
+                            //}
                             myNick = n.Match(wholeline[i + 1]);
                             if (myNick.Success)
                             {
