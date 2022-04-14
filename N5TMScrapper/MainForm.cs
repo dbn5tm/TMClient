@@ -320,6 +320,7 @@ namespace N5TMScrapper
                 Regex de = new Regex("This service");
                 string[] textpart = de.Split(posted[1]);
                 string[] wholeline = dt.Split(textpart[0]);
+                string splitline = "";
                 MatchCollection dte = dt.Matches(textpart[0]);
                 //' find nick names
                 Regex n = new Regex(">.*</a>");
@@ -353,10 +354,12 @@ namespace N5TMScrapper
 
                         if (wholeline[i + 1].Length > 2)
                         {
-                            //if (wholeline[i + 1].Contains("(K0TPP)"))
-                            //{
-                                if(wholeline[i + 1].Substring(0, 2).Contains('(')) wholeline[i + 1] = wholeline[i + 1].Substring(2, wholeline[i + 1].Length - 2);
-                            //}
+                            if (wholeline[i + 1].Contains('\t'))
+                            {
+                                splitline = wholeline[i + 1].Split('\t')[1];
+                            }
+                                
+                            
                             myNick = n.Match(wholeline[i + 1]);
                             if (myNick.Success)
                             {
@@ -374,7 +377,7 @@ namespace N5TMScrapper
                                 }
                                 else
                                 {
-                                    myNick = n1.Match(wholeline[i + 1]);
+                                    myNick = n1.Match(splitline);
                                 }
 
 
@@ -382,9 +385,19 @@ namespace N5TMScrapper
                                 {
                                     if (myNick.Value.Contains(SplitChar))
                                     {
-                                        String nn = wholeline[i + 1].Substring(wholeline[i + 1].IndexOf(SplitChar) - 1);
-                                        String[] nnn = ip.Split(nn)[0].Split(rightSplitChars[PageURLIndex]);
-                                        post_nick[i] = nnn[0].Substring(2);
+                                        if(splitline == "")
+                                        {
+                                            String nn = wholeline[i + 1].Substring(wholeline[i + 1].IndexOf(SplitChar) - 1);
+                                            String[] nnn = ip.Split(nn)[0].Split(rightSplitChars[PageURLIndex]);
+                                            post_nick[i] = nnn[0].Substring(2);
+                                        }
+                                        else
+                                        {
+                                            string nn = splitline;
+                                            string nnn = ip.Split(nn)[0];
+                                            post_nick[i] = splitline.Substring(1);
+                                        }
+                                        
 
                                     }
                                     else
